@@ -1,3 +1,5 @@
+import React from 'react'
+import Modal from './components/Modal'
 import { Nav, Bio, Gallery } from './components' 
 import './App.css'
 
@@ -9,7 +11,11 @@ const App = ( ) => {
           <Bio />
           <Gallery/>
         </div>
+        <Modal />
     </>
   );
 }
 export default App;
+
+
+  

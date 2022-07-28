@@ -1,6 +1,7 @@
 body {
-  background-color: #fafafa;
+  background-color:  #fafafa;;
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 button {
@@ -33,20 +34,22 @@ nav {
 }
 
 .search {
-  background: #fafafa;
+  background: #EFEFEF;
   height: 2em;
   margin: 0.8em;
-  width: 15.5em;
-  border: 0.07em solid #dbdbdb;
-  border-radius: 0.2em;
+  width: 14em;
+  border:1px solid #EFEFEF ;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 .search::placeholder {
   text-align: center;
-  color: #808080;
+  color:  #8e8e8e;
 }
 
 .nav-links {
+  color: #343434;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -63,7 +66,7 @@ nav {
 .bio {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   padding: 3em 0 2em 5em;
   border-bottom: 0.2px solid #dbdbdb;
   margin-top: 5em;
@@ -80,6 +83,13 @@ nav {
   height: 10em;
   border-radius: 50%;
   margin-top: 0.5em;
+}
+
+.modal{
+  background:#054b4b;
+  color:white;
+  border: 2px solid #d70505;
+  border-radius: 4px;
 }
 
 .loader{
@@ -130,18 +140,25 @@ animation: spin 2s linear infinite;
 }
 
 .profile-info .name {
-  font-size: 1.7em;
-  color: #545454;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size:28px;
+  color: rgb(38, 38, 38);
+   font-weight: 300;
+   font-stretch: 100%;
+   display: block;
+   line-height: 32px;
   margin-bottom: 0;
 }
 
 .profile-info .about {
   font-size: 1.2em;
-  color: #545454;
+  color:rgb(38, 38, 38);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif, Georgia;
+  font-weight:400;
 }
 
 .profile-info button {
-  background-color: #0095f6;
+  background-color: #29c6cd;
   color: #fff;
   font-size: 1.1em;
   width: 6em;
@@ -149,7 +166,7 @@ animation: spin 2s linear infinite;
 }
 
 .profile-info button:hover {
-  background-color: #0081d6;
+  background-color: #fea386
 }
 
 .edit-bio-form input {
@@ -163,10 +180,11 @@ animation: spin 2s linear infinite;
 
 .edit-bio-form button {
   margin: 1em 1em 0 0;
+  margin-right: 20px;
 }
 
 .edit-bio-form .cancel-button {
-  background-color: #890000;
+  background: #890000;
 }
 
 #addPhotoInput {
@@ -179,6 +197,7 @@ animation: spin 2s linear infinite;
   bottom: 5em;
   right: 7em;
   cursor: pointer;
+  color:#f19584;
 }
 
 .gallery {

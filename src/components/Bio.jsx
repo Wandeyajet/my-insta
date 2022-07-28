@@ -45,10 +45,10 @@ await db.bio.put(newProfilePhoto, 'profilePhoto')
             <br />
                 <input type="text" id=" " name="aboutUser" defaultValue={userDetails?.about} placeholder="About you" />
             <br />
-                <button type="button" className="cancel-button" onClick ={() => setEditFormIsOpen (false)}>
+            <span className= "red-button" > <button type="button" className="cancel-button" onClick ={() => setEditFormIsOpen (false)}>
                     Cancel 
                 </button>
-                <span></span>
+                </span>
                 <button type="submit">Save</button>
             </form>
         )
@@ -66,6 +66,9 @@ await db.bio.put(newProfilePhoto, 'profilePhoto')
              
                 <div className="profile-info"> 
                     <p className="name">{userDetails.name}</p>
+                    <div className='post'>
+                    <p> <strong>0</strong> posts     <strong>1500</strong> followers      <strong>  250</strong> following</p>
+                    </div>
                     <p className="about">{userDetails.about}</p>
                     
                         {editFormIsOpen ? editForm: editButton}
