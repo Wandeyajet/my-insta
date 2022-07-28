@@ -1,35 +1,49 @@
-   import { useState } from 'react'
+   import { useEffect, useState } from 'react'
    import getPhotoUrl from 'get-photo-url'
    import profileIcon from '../assets/profileIcon.svg'
-    
+   import { db }  from '../dexie'
+
     const Bio = ( ) => {
         const [userDetails, setUserDetails] =useState({
             name: 'Simply Simi',
-            about: 'A sensational Nigerian songwriter and singer known for amazing hits and lovely lyrics.'
+            about: 'A sensational Nigerian songwriter and singer known for amazing hits and lovely lyrics.',
         })
-
     const [editFormIsOpen, setEditFormIsOpen] = useState(false)
 const [profilePhoto, setProfilePhoto] = useState(profileIcon)
 
-const updateUserDetails = async(event) => {
-event.preventDefault( )
-setUserDetails({
-    name: event.target.nameOfUser.value,
-    about: event.target.aboutUser.value,
-})
-setEditFormIsOpen(false)
+useEffect(( ) => {
+    const setDataFromDb =  async ( ) => {
+        const userDetailsFromDb = await db.bio.get('info')
+        const profilePhotoFromDb = await db.bio.get('profilePhoto')
+        userDetailsFromDb && setUserDetails(userDetailsFromDb)
+        profilePhotoFromDb && setProfilePhoto(profilePhotoFromDb)
 }
 
-const updateProfilePhoto= async( ) => {
+    setDataFromDb()
+}, [])
+
+const updateUserDetails = async (event) => {
+event.preventDefault()
+    const objectData ={ 
+    name: event.target.nameOfUser.value,
+    about: event.target.aboutUser.value,
+}
+    setUserDetails(objectData)
+await db.bio.put(objectData, 'info')
+setEditFormIsOpen(false)
+}
+ 
+const updateProfilePhoto= async ( ) => {
    const newProfilePhoto= await getPhotoUrl('#profilePhotoInput')
-   setProfilePhoto(newProfilePhoto)
+   setProfilePhoto(newProfilePhoto)   
+await db.bio.put(newProfilePhoto, 'profilePhoto')
 }
 
         const editForm = (
             <form action="" className="edit-bi0-form" onSubmit = {(e) => updateUserDetails(e)}>                
-            <input type="text" id=" "  name="nameOfUser" placeholder="Your name" />
+            <input type="text" id=" "  name="nameOfUser" defaultValue={userDetails?.name} placeholder="Your name" />
             <br />
-                <input type="text" id=" " name="aboutUser" placeholder="About you" />
+                <input type="text" id=" " name="aboutUser" defaultValue={userDetails?.about} placeholder="About you" />
             <br />
                 <button type="button" className="cancel-button" onClick ={() => setEditFormIsOpen (false)}>
                     Cancel 
