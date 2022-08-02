@@ -5,9 +5,9 @@ import { db } from '../dexie'
 const Gallery =( ) => {
 const allPhotos  = useLiveQuery(() => db.gallery.toArray(), [])
 
-const addPhoto =async () =>{
+const addPhoto = async() => {
  db.gallery.add({
-        url: await getPhotoUrl('#addPhotoInput'),
+        url: await getPhotoUrl('#addPhotoInput')
   })
 }
 
@@ -19,7 +19,7 @@ const removePhoto=  (id) => {
         <>
             <input type="file" name='photo' id='addPhotoInput' />
             <label htmlFor="addPhotoInput" onClick={addPhoto}>
-                <i className="add-photo-button fa-solid fa-square-plus"></i>
+                <i className="add-photo-button fa-solid fa-square-plus"title="Click to add photo"></i>
             </label>
 
             <section className="gallery">
@@ -34,4 +34,6 @@ const removePhoto=  (id) => {
         </>
     )
 }
+
 export default Gallery
+

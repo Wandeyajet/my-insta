@@ -4,7 +4,7 @@
    import { db }  from '../dexie'
 
     const Bio = ( ) => {
-        const [userDetails, setUserDetails] =useState({
+        const [userDetails, setUserDetails] = useState({
             name: 'Simply Simi',
             about: 'A sensational Nigerian songwriter and singer known for amazing hits and lovely lyrics.',
         })
@@ -41,14 +41,18 @@ await db.bio.put(newProfilePhoto, 'profilePhoto')
 
         const editForm = (
             <form action="" className="edit-bi0-form" onSubmit = {(e) => updateUserDetails(e)}>                
-            <input type="text" id=" "  name="nameOfUser" defaultValue={userDetails?.name} placeholder="Your name" />
+            <input type="text" id=""  name="nameOfUser" defaultValue={userDetails?.name} placeholder="Your name" />
             <br />
-                <input type="text" id=" " name="aboutUser" defaultValue={userDetails?.about} placeholder="About you" />
-            <br />
-            <span className= "red-button" > <button type="button" className="cancel-button" onClick ={() => setEditFormIsOpen (false)}>
+            <br/>
+                <input type="text" id="" name="aboutUser" defaultValue={userDetails?.about} placeholder="About you" />
+            <br/>
+            <br/>
+            
+            <span className="button"> <button type="button" className="cancel-button" onClick ={() => setEditFormIsOpen (false)}>
                     Cancel 
                 </button>
                 </span>
+                <div class="space"></div>
                 <button type="submit">Save</button>
             </form>
         )

@@ -11,7 +11,7 @@ const App = ( ) => {
           <Bio />
           <Gallery/>
         </div>
-        <button>Show Modal</button>
+        <button className="show-modal">Show Modal</button>
         <Modal />
     </>
   );
