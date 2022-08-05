@@ -110,6 +110,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 30%;
+  margin: 0;
+  margin-left:50%
 }
 
 .modal-button{
@@ -329,7 +332,8 @@ animation: spin 2s linear infinite;
     color: #fff;
     font-size: 0.8em;
     width: 4em;
-    height: 3em;}
+    height: 3em;
+  }
   }
 
 @media(max-width:500px){
@@ -338,14 +342,22 @@ animation: spin 2s linear infinite;
     grid-template-columns: 1fr;
   }
 
+.bio {
+    padding: unset;
+    padding-bottom: 1em;
+}
   .item{
     width: 11em;
     height:11em;
+   align-items: center;
+   margin:0 auto;
   }
+
   .profile-info .about {
     font-size: 1.em;
     font-weight:300;
   }
+
   .nav-links i {
     transform: scale(0.8);
   }

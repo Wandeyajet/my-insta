@@ -2,8 +2,10 @@ import React from 'react'
 import Modal from './components/Modal'
 import { Nav, Bio, Gallery } from './components' 
 import './App.css'
+import {useState} from 'react'
 
 const App = ( ) => { 
+  const [show, setShow] =useState (false)
   return (
    <>
       <Nav  />
@@ -11,8 +13,8 @@ const App = ( ) => {
           <Bio />
           <Gallery/>
         </div>
-        <button className="show-modal">Show Modal</button>
-        <Modal />
+        <button onClick ={() => setShow(true)} > Show Modal</button>
+        <Modal show ={show} />
     </>
   );
 }
